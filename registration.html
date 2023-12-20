@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="style/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Open+Sans:ital,wght@1,500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="testClass">
+        <b>Register Page </b><br><br>
+        <form onsubmit="return false;">
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname" placeholder="  Your first name: ex. John" required><br>
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname" placeholder="  Your last name: ex. Wick" required><br>
+            <label for="dateofBirth">Date-of-birth:</label><br>
+            <input type="date" id="dateofBirth" name="dateofBirth" required><br>
+            <label for="uname">Username:</label><br>
+            <input type="text" id="uname" name="uname" placeholder="  Must be alphabet and numbers only" 
+            size="30%" maxlength="13" minlength="8" required><br>
+            <label for="password">Password:</label><br>
+            <input type="text" id="password" name="password" 
+            size="30%" maxlength="20" placeholder="   Must be over than 8 chars or digits" required>
+
+            <br><br>
+            <button type="submit" onclick="submitForm()">Register</button>
+          </form>
+        <br>
+        <a href="continue.html">Continue</a>
+        <br>
+    </div>
+
+    <script src="js/converter.js"></script>
+
+</body>
+</html>
