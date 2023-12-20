@@ -17,7 +17,7 @@ function convertToAge(date) {
         
     const currentDate = new Date();
     
-    const age = currentDate.getFullYear() - dob.getFullYear();
+    let age = currentDate.getFullYear() - dob.getFullYear();
 
     if (currentDate.getMonth() < dob.getMonth() || 
         (currentDate.getMonth() === dob.getMonth() && currentDate.getDate() < dob.getDate())) {
@@ -27,12 +27,12 @@ function convertToAge(date) {
     }
 }
 
-let userNameElement = document.getElementById("uname");
+const userNameElement = document.getElementById("uname");
 
 userNameElement.oninput = (event) => {
     event.preventDefault();
-    let regex = /\d/;
-    let regex2 = /\D/;
+    const regex = /\d/;
+    const regex2 = /\D/;
 
     if (userNameElement.onsubmit.value.length == 13 && !regex.test(userNameElement.value)){
         alert(`${userNameElement.value} cannot be used, Username must includes numbers!`);
@@ -45,7 +45,7 @@ function submitForm(){
     let storedAge = document.getElementById("dateofBirth").value;
     let storedPW = document.getElementById("password").value;
     
-    let user = {
+    const user = {
         firstName: document.getElementById("fname").value,
         lastName: document.getElementById("lname").value,
         userName: document.getElementById("uname").value,
