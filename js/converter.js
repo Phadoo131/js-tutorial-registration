@@ -29,7 +29,8 @@ function convertToAge(date) {
 
 let userNameElement = document.getElementById("uname");
 
-userNameElement.oninput = () => {
+userNameElement.oninput = (event) => {
+    event.preventDefault();
     let regex = /\d/;
     let regex2 = /\D/;
 
@@ -51,6 +52,13 @@ function submitForm(){
         password: storedPW.hashCode(),
         age: convertToAge(storedAge),
     }
+
+    storedAge = "";
+    storedPW = "";
+    document.getElementById("fname").value = "";
+    document.getElementById("lname").value = "";
+    document.getElementById("uname").value = "";
+
 
     if (user.userName == ''){
         alert('Please fill in every sections to register!');
