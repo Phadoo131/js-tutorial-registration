@@ -30,8 +30,8 @@ function convertToAge(date) {
 const userNameElement = document.getElementById("uname");
 let storedPW = document.getElementById("password");
 
-const regex = /\d/;
-const regex2 = /\D/;
+const regex = /\d/; //validate nums
+const regex2 = /\D/; //validate alphabet letters
 
 userNameElement.addEventListener("blur", () => {
     if (userNameElement.value.length >= 8 && !regex.test(userNameElement.value)){
