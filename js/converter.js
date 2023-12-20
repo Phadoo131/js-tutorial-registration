@@ -28,37 +28,51 @@ function convertToAge(date) {
 }
 
 const userNameElement = document.getElementById("uname");
+let storedPW = document.getElementById("password");
 
-userNameElement.oninput = (event) => {
-    event.preventDefault();
-    const regex = /\d/;
-    const regex2 = /\D/;
+const regex = /\d/;
+const regex2 = /\D/;
 
-    if (userNameElement.onsubmit.value.length == 13 && !regex.test(userNameElement.value)){
+userNameElement.addEventListener("blur", () => {
+    if (userNameElement.value.length >= 8 && !regex.test(userNameElement.value)){
         alert(`${userNameElement.value} cannot be used, Username must includes numbers!`);
-    } else if (userNameElement.onsubmit.value.length == 13 && !regex2.test(userNameElement.value)){
+    } else if (userNameElement.value.length >= 8 && !regex2.test(userNameElement.value)){
         alert(`${userNameElement.value} cannot be used, Username must includes alphabet!`);
     }
-}
+})
+
+storedPW.addEventListener("blur", () => {
+    if (storedPW.value.length >= 8 && !regex.test(storedPW.value)){
+        alert(`${storedPW.value} cannot be used, Password must includes numbers!`);
+    } else if (storedPW.value.length >= 8 && !regex2.test(storedPW.value)){
+        alert(`${storedPW.value} cannot be used, Password must includes alphabet!`);
+    }
+})
+
+//Not used commented codes anymore
+//Leave them here to learn about it later on.
+// userNameElement.oninput = (event) => {
+//     event.preventDefault();
+//     const regex = /\d/;
+//     const regex2 = /\D/;
+
+//     if (userNameElement.onsubmit.value.length == 13 && !regex.test(userNameElement.value)){
+//         alert(`${userNameElement.value} cannot be used, Username must includes numbers!`);
+//     } else if (userNameElement.onsubmit.value.length == 13 && !regex2.test(userNameElement.value)){
+//         alert(`${userNameElement.value} cannot be used, Username must includes alphabet!`);
+//     }
+// }
 
 function submitForm(){
     let storedAge = document.getElementById("dateofBirth").value;
-    let storedPW = document.getElementById("password").value;
     
     const user = {
         firstName: document.getElementById("fname").value,
         lastName: document.getElementById("lname").value,
         userName: document.getElementById("uname").value,
-        password: storedPW.hashCode(),
+        password: storedPW.value.hashCode(),
         age: convertToAge(storedAge),
     }
-
-    storedAge = "";
-    storedPW = "";
-    document.getElementById("fname").value = "";
-    document.getElementById("lname").value = "";
-    document.getElementById("uname").value = "";
-
 
     if (user.userName == ''){
         alert('Please fill in every sections to register!');
@@ -71,4 +85,10 @@ function submitForm(){
     console.log(`Username: ${user.userName}`);
     console.log(`Hashed PW: ${user.password}`);
     console.log(`Age: ${user.age}`);
+
+    storedAge = "";
+    storedPW.value = "";
+    document.getElementById("fname").value = "";
+    document.getElementById("lname").value = "";
+    document.getElementById("uname").value = "";
 }
